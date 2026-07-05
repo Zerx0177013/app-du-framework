@@ -11,7 +11,19 @@
 
     <servlet-mapping>
         <servlet-name>FrontController</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
+    <listener>
+        <listener-class>roro.listener.AppServletContextListener</listener-class>
+    </listener>
 
+    <context-param>
+        <param-name>view.prefix</param-name>
+        <param-value>/WEB-INF/views/</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>view.suffix</param-name>
+        <param-value>.jsp</param-value>
+    </context-param>
 </web-app>
