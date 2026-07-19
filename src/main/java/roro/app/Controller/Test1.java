@@ -2,7 +2,6 @@ package roro.app.Controller;
 
 import roro.annotation.MonController;
 import roro.annotation.UrlMapping;
-import roro.util.ModAndView;
 
 @MonController
 public class Test1 {
@@ -12,13 +11,13 @@ public class Test1 {
         return "Test1";
     }
 
-    @UrlMapping(value = "/api/andrana", method = "GET")
-    public ModAndView andrana2() {
-        ModAndView mav = new ModAndView();
-        mav.setView("Test1");
-        mav.addValue("Nombre 12", 12);
-        mav.addValue("test", "zavatra hafahafa");
-        mav.addValue("test statique", "idk what to write`");
-        return mav;
-    }
+    // @UrlMapping(value = "/api/andrana", method = "GET")
+    // public ModAndView andrana2() {
+    //     ModAndView mav = new ModAndView();
+    //     mav.setView("Test1");
+    //     mav.addValue("Nombre 12", 12);
+    //     mav.addValue("test", "zavatra hafahafa");
+    //     mav.addValue("test1", "idk what to write`");
+    //     return mav;
+    // }
 }

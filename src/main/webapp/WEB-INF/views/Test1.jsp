@@ -9,16 +9,9 @@
 </head>
 <body>
     <ul>
-        <%
-            Map<String, Object> map = (Map<String, Object>) request.getAttribute("map");
-            if (map != null) {
-                for (Map.Entry<String, Object> entry : map.entrySet()) {
-        %>
-            <li><%= entry.getKey() %> : <%= entry.getValue() %></li>
-        <%
-                }
-            }
-        %>
+        <li><%= request.getAttribute("Nombre 12") %></li>
+        <li><%= request.getAttribute("test") %></li>
+        <li><%= request.getAttribute("test1") %></li>
     </ul>
 </body>
 </html>
