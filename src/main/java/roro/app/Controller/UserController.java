@@ -56,4 +56,33 @@ public class UserController {
         UserService userService = ctx.getBean(UserService.class);
         return userService.findById((long) 1);
     }
+
+    @UrlMapping(value = "/api/user/form", method = "GET")
+    public ModAndView getForm(ApplicationContext ctx) {
+        ModAndView mav = new ModAndView();
+        mav.setView("form");
+        return mav;
+    }
+
+    @UrlMapping(value = "/api/user/save", method = "POST")
+    public String saveUser(String username, String mail, ApplicationContext ctx) {
+        UserService userService = ctx.getBean(UserService.class);
+
+        User user = new User();
+        user.setUsername(username);
+        user.setEmail(mail);
+
+        userService.save(user);
+
+        return "message : Utilisateur enregistré";
+    }
+
+    @UrlMapping(value = "/api/user/save1", method = "POST")
+    public String saveUser1(User user, ApplicationContext ctx) {
+        UserService userService = ctx.getBean(UserService.class);
+
+        userService.save(user);
+
+        return "message : Utilisateur enregistré";
+    }
 }
