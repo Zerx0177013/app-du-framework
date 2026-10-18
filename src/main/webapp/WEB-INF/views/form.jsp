@@ -8,10 +8,27 @@
     <title>Document</title>
 </head>
 <body>
-<form method="post" action="${pageContext.request.contextPath}/api/user/save1">
-    <input type="text" name="username" placeholder="Username">
-    <input type="email" name="email" placeholder="Email">
-    <button type="submit">Envoyer</button>
+<form method="post" action="${pageContext.request.contextPath}/api/binder/user">
+    <label>
+        Username
+        <input type="text" name="username" placeholder="Username">
+    </label>
+    <label>
+        Email
+        <input type="email" name="email" placeholder="Email">
+    </label>
+    <fieldset>
+        <legend>Aretina</legend>
+        <label>
+            Name
+            <input type="text" name="aretina.name" placeholder="Aretina name">
+        </label>
+        <label>
+            Description
+            <textarea name="aretina.description" placeholder="Aretina description"></textarea>
+        </label>
+    </fieldset>
+    <button type="submit">Test binder</button>
 </form>
 </body>
 </html>

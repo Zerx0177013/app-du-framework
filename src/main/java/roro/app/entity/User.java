@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name="user")
@@ -15,6 +16,9 @@ public class User {
 
     private String username;
     private String email;
+
+    @Transient
+    private Aretina aretina;
 
     public Long getId() {
         return id;
@@ -38,6 +42,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Aretina getAretina() {
+        return aretina;
+    }
+
+    public void setAretina(Aretina aretina) {
+        this.aretina = aretina;
     }
 
 }
