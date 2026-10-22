@@ -42,4 +42,8 @@
     </context-param>
 
 
+    <context-param>
+        <param-name>auth.user-session-key</param-name>
+        <param-value>user</param-value>
+    </context-param>
 </web-app>
