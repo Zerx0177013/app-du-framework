@@ -7,9 +7,10 @@
     <title>Accueil</title>
 </head>
 <body>
-    <h1>Bienvenue ${sessionScope.user}</h1>
+    <h1>Bienvenue ${sessionScope.user} (${sessionScope.role})</h1>
 
     <button onclick="appeler('/api/session/hello')">Hello</button>
+    <button onclick="appeler('/api/session/admin')">Admin</button>
     <button onclick="appeler('/api/session/logout')">Logout</button>
 
     <p>Résultat : <strong id="resultat">—</strong></p>
@@ -20,7 +21,8 @@
         async function appeler(url) {
             const res = await fetch(ctx + url);
             document.getElementById("resultat").textContent =
-                res.ok ? await res.text() : res.status + " (non autorisé)";
+                res.ok ? await res.text()
+                       : res.status === 403 ? "403 (rôle insuffisant)" : res.status + " (non connecté)";
         }
     </script>
 </body>

@@ -17,8 +17,9 @@ public class SessionController {
     }
 
     @UrlMapping(value = "/api/session/login", method = "GET")
-    public ModAndView login(String username, MySession session) {
+    public ModAndView login(String username, String role, MySession session) {
         session.setAttribute("user", username);
+        session.setAttribute("role", role);
         ModAndView mav = new ModAndView();
         mav.setView("home");
         return mav;
@@ -36,10 +37,16 @@ public class SessionController {
         return "hello " + session.getAttribute("user");
     }
 
+    @Auth(roles = "admin")
+    @UrlMapping(value = "/api/session/admin", method = "GET")
+    public String admin(MySession session) {
+        return "zone admin : " + session.getAttribute("user");
+    }
 
     @UrlMapping(value = "/api/session/logout", method = "GET")
     public String logout(MySession session) {
         session.removeAttribute("user");
+        session.removeAttribute("role");
         return "Déconnecté";
     }
 }

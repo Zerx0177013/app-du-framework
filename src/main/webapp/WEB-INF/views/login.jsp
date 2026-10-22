@@ -13,6 +13,13 @@
             Nom
             <input type="text" name="username" placeholder="Nom" required>
         </label>
+        <label>
+            Rôle
+            <select name="role">
+                <option value="user">user</option>
+                <option value="admin">admin</option>
+            </select>
+        </label>
         <button type="submit">Se connecter</button>
     </form>
 </body>
